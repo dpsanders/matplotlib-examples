@@ -7,16 +7,17 @@
 
 # <markdowncell>
 
-# Plotting multi-colored lines may be achieved using LineCollection.
-# Here, a simpler interface is introduced via the function colorline.
+# Plotting multi-colored lines may be achieved using `LineCollection`.
+# These examples use a more simple interface by introducing a function `colorline`.
 
 # <codecell>
 
 %pylab inline
-# %config InlineBackend.figure_format = 'retina'
+# %config InlineBackend.figure_format = 'retina'  # Use for retina display resolution
 
 # <codecell>
 
+# Different styling for graphs (requires separate mpltools package)
 # from mpltools import style
 # style.use("ggplot")
 
@@ -39,13 +40,6 @@ z can be:
 
 The function colorline returns the LineCollection created, which can be modified afterwards.
 
-Examples:
-- Coloring with a continuous colormap, based on distance (or time) along the path
-- Changing the uniform color on different curves
-- Coloring with a discrete colormap, based on the slope of the curve
-- Defining colored dash patterns
-- Combining a continuous colormap with changing linewidth and transparency
-
 See also: plt.streamplot
 '''
 
@@ -54,6 +48,8 @@ import matplotlib.pyplot as plt
 from matplotlib.collections import LineCollection
 from matplotlib.colors import ListedColormap, BoundaryNorm
 
+
+# Data manipulation:
 
 def make_segments(x, y):
     '''
@@ -66,6 +62,8 @@ def make_segments(x, y):
     
     return segments
 
+
+# Interface to LineCollection:
 
 def colorline(x, y, z=None, cmap=plt.get_cmap('copper'), norm=plt.Normalize(0.0, 1.0), linewidth=3, alpha=1.0):
     '''
@@ -104,7 +102,7 @@ def clear_frame(ax=None):
 
 # <headingcell level=2>
 
-# Example 1: Sine wave colored by time
+# Example 1: Sine wave colored by time (uses the defaults for colorline)
 
 # <codecell>
 
@@ -146,7 +144,7 @@ plt.show()
 
 # <headingcell level=2>
 
-# Example 3: A curve given by a polar function, plotted with a custom colored dash style
+# Example 3: A polar function, plotted with a custom colored dash style
 
 # <codecell>
 
