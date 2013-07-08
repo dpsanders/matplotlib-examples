@@ -127,13 +127,13 @@ plt.show()
 
 # Shifting a sine wave: Example modified from mpltools by Tony S Yu
 
-x = np.linspace(0, 4.*pi, 1000)
-y = sin(x)
+x = np.linspace(0, 4.*np.pi, 1000)
+y = np.sin(x)
 
 fig, axes = plt.subplots()
 
 N = 10
-for i in range(N):
+for i in xrange(N):
     color = i / float(N)
     shift = 0.2 * i
     colorline(x-shift, y, color, cmap="cool")
@@ -154,7 +154,7 @@ max_t = 6*np.pi
 theta = np.linspace(0, max_t, 1000)
 
 alpha = 0.3
-r = 1 + alpha*sin(7./3. * theta)
+r = 1 + alpha*np.sin(7./3. * theta)
 
 x = r * np.sin(theta)
 y = r * np.cos(theta)
@@ -168,7 +168,7 @@ colorline(x, y, colored_dashes, cmap='jet', linewidth=8) #, [0.3]*8+[0.4]*4+[0.5
 plt.xlim(x.min() - 0.1, x.max() + 0.1)
 plt.ylim(y.min() - 0.1, y.max() + 0.1)
 
-axis('equal')
+plt.axis('equal')
 clear_frame()
 plt.show()
 
